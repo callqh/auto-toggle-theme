@@ -1,16 +1,26 @@
 {
   "name": "auto-toggle-theme",
-  "displayName": "auto toggle theme",
-  "description": "自动切换主题",
+  "displayName": "自动切换主题",
+  "description": "定时自动切换主题，白天用亮色，晚上用深色，保护您的眼睛",
   "version": "0.0.1",
+  "keywords": [
+    "plugin",
+    "主题",
+    "切换",
+    "toggle",
+    "theme"
+  ],
   "engines": {
     "vscode": "^1.53.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Themes"
   ],
+  "icon": "images/icon.png",
   "activationEvents": [
-    "onCommand:auto-toggle-theme.helloWorld"
+    "onCommand:auto-toggle-theme.helloWorld",
+    "onCommand:auto-toggle-theme.go"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -18,8 +28,36 @@
       {
         "command": "auto-toggle-theme.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "auto-toggle-theme.go",
+        "title": "Go"
       }
-    ]
+    ],
+    "keybindings": [
+      {
+        "command": "auto-toggle-theme.helloWorld",
+        "key": "ctrl+f10",
+        "mac": "cmd+f10",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "auto-toggle-theme.helloWorld",
+          "when": "editorFocus",
+          "group": "navigation"
+        }
+      ],
+      "editor/title": [
+        {
+          "command": "auto-toggle-theme.helloWorld",
+          "when": "editorFocus",
+          "group": "navigation"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
