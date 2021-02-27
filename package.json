@@ -1,25 +1,52 @@
 {
   "name": "auto-toggle-theme",
-  "displayName": "auto toggle theme",
-  "description": "自动切换主题",
+  "displayName": "定时切换vscode主题",
+  "description": "自动切换主题：可以达到白天用浅色主题，晚上用深色主题的目的，保护眼睛",
   "version": "0.0.1",
+  "keywords": [
+    "plugin",
+    "theme",
+    "auto"
+  ],
+  "publisher": "火热Fire",
   "engines": {
     "vscode": "^1.53.0"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Themes"
   ],
   "activationEvents": [
     "onCommand:auto-toggle-theme.helloWorld"
   ],
   "main": "./dist/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "auto-toggle-theme",
+      "properties": {
+        "auto-toggle-theme.status": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否开启自动更换主题模式"
+        }
+      }
+    },
     "commands": [
       {
         "command": "auto-toggle-theme.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "menus": {},
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "sss",
+          "title": "Hello",
+          "icon": "./images/icon.svg"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
