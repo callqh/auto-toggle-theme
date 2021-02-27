@@ -1,14 +1,15 @@
 {
   "name": "auto-toggle-theme",
-  "displayName": "定时切换vscode主题",
-  "description": "自动切换主题：可以达到白天用浅色主题，晚上用深色主题的目的，保护眼睛",
+  "displayName": "自动切换主题",
+  "description": "定时自动切换主题，白天用亮色，晚上用深色，保护您的眼睛",
   "version": "0.0.1",
   "keywords": [
     "plugin",
-    "theme",
-    "auto"
+    "主题",
+    "切换",
+    "toggle",
+    "theme"
   ],
-  "publisher": "火热Fire",
   "engines": {
     "vscode": "^1.53.0"
   },
@@ -16,6 +17,7 @@
     "Other",
     "Themes"
   ],
+  "icon": "./images/icon.png",
   "activationEvents": [
     "onCommand:auto-toggle-theme.helloWorld"
   ],
@@ -35,6 +37,18 @@
       {
         "command": "auto-toggle-theme.helloWorld",
         "title": "Hello World"
+      },
+      {
+        "command": "auto-toggle-theme.go",
+        "title": "Go"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "auto-toggle-theme.helloWorld",
+        "key": "ctrl+f10",
+        "mac": "cmd+f10",
+        "when": "editorTextFocus"
       }
     ],
     "menus": {},

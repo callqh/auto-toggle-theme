@@ -10,6 +10,7 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.window.showInformationMessage('Yep！成功啦!哈哈哈哈哈能监听到修改吗');
   });
 
+  // 存放注册的命令，这个数组中的事件，在插件被释放时也会被处理
   context.subscriptions.push(disposable);
 }
 
