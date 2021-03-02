@@ -19,7 +19,7 @@
   ],
   "icon": "./images/icon.png",
   "activationEvents": [
-    "onCommand:auto-toggle-theme.helloWorld"
+    "onStartupFinished"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -30,34 +30,49 @@
           "type": "boolean",
           "default": true,
           "description": "是否开启自动更换主题模式"
+        },
+        "auto-toggle-theme.toggleTime": {
+          "type": "string",
+          "default": "18:00",
+          "description": "选择切换主题的时间"
+        },
+        "auto-toggle-theme.lightTheme": {
+          "type": "string",
+          "default": "Light+",
+          "description": "亮色主题"
+        },
+        "auto-toggle-theme.darkTheme": {
+          "type": "string",
+          "default": "Dark+",
+          "description": "暗色主题"
         }
       }
     },
     "commands": [
       {
-        "command": "auto-toggle-theme.helloWorld",
-        "title": "Hello World"
+        "command": "auto-toggle-theme.on",
+        "title": "开启定时切换主题"
       },
       {
-        "command": "auto-toggle-theme.go",
-        "title": "Go"
-      }
-    ],
-    "keybindings": [
-      {
-        "command": "auto-toggle-theme.helloWorld",
-        "key": "ctrl+f10",
-        "mac": "cmd+f10",
-        "when": "editorTextFocus"
+        "command": "auto.toggle-theme.off",
+        "title": "关闭定时切换主题"
       }
     ],
     "menus": {},
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "sss",
-          "title": "Hello",
-          "icon": "./images/icon.svg"
+          "id": "auto-toggle-theme",
+          "title": "定时切换主题",
+          "icon": "images/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "auto-toggle-theme": [
+        {
+          "id": "nodeDependencies",
+          "name": "是否开启"
         }
       ]
     }
